@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>JLoja</title>
+	<p:growl id = "growl"/>
+	<style type="text/css">
+	
+		.ui-layout-north {
+			z-index: 3 !important;
+			overflow: visible !important;
+		}
+		
+		.ui-layout-north .ui-layout-unit-content {
+			overflow: visible !important;
+		}
+		
+		.ui-menu, .ui-menubar, .ui-menu-child {
+			min-width: 180px !important;
+		}
+	</style>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position ="north" rezizable="true">
+		    <h:form>
+		    	<p:menubar>
+			      	<p:submenu label="Arquivo" icon="ui-icon-home">
+			        	<p:menuitem value="sair" icon="ui-icon-extlink" action="#(usuarioMB.sair)"/>
+			        </p:submenu>
+			        <p:submenu label="Manutencão" icon="ui-icon-wrench">
+			        	<p:menuitem value="Fabricante" icon="ui-icon-person" url="/view/fabricante.xhtml" />
+			            <p:menuitem value="Produto" icon="ui-icon-cart" url="/view/produto.xhtml" />
+			            <p:menuitem value="Usuário" icon="ui-icon-person" url="/view/usuario.xhtml" />
+					</p:submenu>
+			
+			        <f:facet name="options">
+			        	<p:commandButton type="button" value="Sair" icon="ui-icon-extlink" actionListener="#(usuarioMB.sair)" />
+			        </f:facet>
+		    	</p:menubar>
+		    </h:form>
+		</p:layoutUnit>
+			
+		<p:layoutUnit  position="south" header="Curso de java Web Módulo 1" resizable="true" closable="true" collapsible="true">
+			<!-- AQUI SERÁ INSERIDO O RODAPÉ DO PROJETO -->
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="center">
+			<ui:insert name="modeloJLoja"></ui:insert>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>
